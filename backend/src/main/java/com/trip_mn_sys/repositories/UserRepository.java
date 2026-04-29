@@ -1,4 +1,7 @@
-package com.trip_mn_sys.services;
+package com.trip_mn_sys.repositories;
 
-public interface UserRepository {
+import com.trip_mn_sys.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Integer> {
 }

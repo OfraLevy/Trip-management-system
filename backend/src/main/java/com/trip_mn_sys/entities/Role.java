@@ -1,2 +1,7 @@
-package com.trip_mn_sys.entities;public enum Role {
+package com.trip_mn_sys.entities;
+
+public enum Role {
+    TEACHER,
+    STUDENT,
+    ADMIN
 }

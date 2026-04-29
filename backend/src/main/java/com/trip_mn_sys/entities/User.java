@@ -1,16 +1,21 @@
 package com.trip_mn_sys.entities;
+import jakarta.persistence.*;
+import lombok.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "users")
 @Getter
 @Setter
-public class SchoolPerson {
+@AllArgsConstructor
+@NoArgsConstructor
+public class User {
+    @Id
     private int id;
-    private String fullName;
-    private String className;
+
+    private String username;
+
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

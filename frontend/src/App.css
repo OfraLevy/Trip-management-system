@@ -1,0 +1,20 @@
+
+
+.custom-header .nav-link{
+  color: #3f4a56;
+}
+.custom-header .nav-link.active {
+  background-color: #f8f9fa;
+  color: #3f4a56;
+  border-radius: 6px 6px 0 0;
+}
+
+.rounded-table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-head-custom th {
+  background-color: #4d2370;
+  color: white;
+}

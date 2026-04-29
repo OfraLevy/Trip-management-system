@@ -1,9 +1,8 @@
 package com.trip_mn_sys.entities.dto;
 
-public record RegisterUserDto(
+public record RequestUser(
         int id,
         String userName,
-        Boolean teacher,
-        String password,
-        String checkPassword
+        boolean teacher,
+        String password
 ) {}
