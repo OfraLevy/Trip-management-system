@@ -5,6 +5,7 @@ services:
     environment:
       POSTGRES_USER: amigoscode
       POSTGRES_PASSWORD: password
+      POSTGRES_DB: trip_management_database
       PGDATA: /data/postgres
     volumes:
       - db:/data/postgres
@@ -17,5 +18,6 @@ services:
 networks:
   db:
     driver: bridge
+
 volumes:
   db:
