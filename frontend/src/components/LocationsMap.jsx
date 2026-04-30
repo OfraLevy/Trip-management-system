@@ -46,7 +46,7 @@ export default function LocationsMap({ user, teacherLocation }) {
       libraries={["geometry"]}
     >
       <div style={{ width: "100%", height: "500px" }}>
-        <Map defaultZoom={15} defaultCenter={position} mapId={MAP_ID}>
+        <Map defaultZoom={13} defaultCenter={position} mapId={MAP_ID}>
           <AdvancedMarker
             position={position}
             onClick={() =>
@@ -122,60 +122,6 @@ export default function LocationsMap({ user, teacherLocation }) {
       </div>
     </APIProvider>
   );
-
-  function StudentMarker({ student, teacherLocation }) {
-    const geometryLib = useMapsLibrary("geometry");
-    return (
-      <AdvancedMarker
-        key={student.id}
-        position={{
-          lat: student.location.latitude,
-          lng: student.location.longitude,
-        }}
-        onClick={() =>
-          setSelectedPerson({
-            name: student.fullName,
-            position: {
-              lat: student.location.latitude,
-              lng: student.location.longitude,
-            },
-          })
-        }
-      >
-        {teacherLocation &&
-        computeDistanceBetween(
-          {
-            lat: student.location.latitude,
-            lng: student.location.longitude,
-          },
-          {
-            lat: teacherLocation?.latitude,
-            lng: teacherLocation?.longitude,
-          },
-        ) < RADIUS ? (
-          <Pin
-            background={"green"}
-            borderColor={"darkgreen"}
-            glyphColor={"white"}
-          />
-        ) : (
-          <Pin
-            background={"red"}
-            borderColor={"darkred"}
-            glyphColor={"white"}
-          />
-        )}
-      </AdvancedMarker>
-    );
-    function computeDistanceBetween(pointA, pointB) {
-      if (!geometryLib) return Infinity;
-      return geometryLib.spherical.computeDistanceBetween(
-        new window.google.maps.LatLng(pointA.lat, pointA.lng),
-        new window.google.maps.LatLng(pointB.lat, pointB.lng),
-      );
-    }
-  }
-
   function refreshLocations() {
     studentsWithLocation()
       .then((response) => {
@@ -193,4 +139,47 @@ export default function LocationsMap({ user, teacherLocation }) {
         console.error("Error fetching teachers:", error);
       });
   }
+}
+
+function StudentMarker({ student, teacherLocation, onSelect }) {
+  const geometryLib = useMapsLibrary("geometry");
+
+  function computeDistanceBetween(pointA, pointB) {
+    if (!geometryLib) return Infinity;
+    return geometryLib.spherical.computeDistanceBetween(
+      new window.google.maps.LatLng(pointA.lat, pointA.lng),
+      new window.google.maps.LatLng(pointB.lat, pointB.lng),
+    );
+  }
+
+  const isNear =
+    teacherLocation &&
+    computeDistanceBetween(
+      { lat: student.location.latitude, lng: student.location.longitude },
+      { lat: teacherLocation.latitude, lng: teacherLocation.longitude },
+    ) < 3000;
+
+  return (
+    <AdvancedMarker
+      position={{
+        lat: student.location.latitude,
+        lng: student.location.longitude,
+      }}
+      onClick={() =>
+        onSelect({
+          name: student.fullName,
+          position: {
+            lat: student.location.latitude,
+            lng: student.location.longitude,
+          },
+        })
+      }
+    >
+      <Pin
+        background={isNear ? "green" : "red"}
+        borderColor={isNear ? "darkgreen" : "darkred"}
+        glyphColor={"white"}
+      />
+    </AdvancedMarker>
+  );
 }
