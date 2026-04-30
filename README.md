@@ -33,7 +33,6 @@
 
 לכל אחד מהם מוצג מסך שונה בהתאם להרשאות שלו.
 
-📷 **כאן מומלץ להוסיף צילום מסך של מסך ההתחברות הראשי**
 <a id="tech"></a>
 # טכנולוגיות שבהן השתמשתי
 
@@ -126,7 +125,16 @@ http://localhost:3000
 
 לאחר ההתחברות המערכת מזהה את סוג המשתמש ומעבירה אותו למסך המתאים בהתאם להרשאות שלו.
 
-📷 **כאן מומלץ להוסיף צילום מסך של מסך ההתחברות**
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/27c0086e-3b58-432e-a018-69c0a73081f5" alt="Before Image">
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/dd99e840-877b-4c9b-b858-cac911dc41f8" alt="After Image">
+    </td>
+  </tr>
+</table>
 
 
 <h1 id="users">סוגי משתמשים במערכת</h1>
@@ -138,7 +146,8 @@ http://localhost:3000
 - לצפות ברשימת תלמידים
 - להוסיף מורה חדש
 - להוסיף תלמיד חדש
-### 📷 כאן מומלץ להוסיף צילום מסך של AdminApp
+  
+<img width="1585" height="701" alt="image" src="https://github.com/user-attachments/assets/9e3eab91-157b-44c3-bee4-e9c2e624d42b" />
 
 ## מורה
 כאשר מורה מתחבר, הוא רואה:
@@ -149,8 +158,18 @@ http://localhost:3000
 - מפה המציגה מיקומים בזמן אמת
 
 בנוסף ניתן ללחוץ על תלמיד או מורה ולקבל פרטים נוספים
-### 📷 כאן מומלץ להוסיף צילום מסך של מסך המורה
-### 📷 כאן מומלץ להוסיף צילום מסך של המפה
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/ca5210a8-8b16-47fe-b299-9efc2e55e3c2" alt="Before Image">
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/bcc471ca-b5a8-4450-8f02-d48143a5eda4"  alt="After Image">
+    </td>
+  </tr>
+</table>
+
 
 ## תלמיד
 כאשר תלמיד מתחבר, הוא רואה מפה הכוללת:
@@ -158,7 +177,8 @@ http://localhost:3000
 - את המיקום שלו
 - את מיקום המורה
 - מידע שמתעדכן בזמן אמת
-### 📷 כאן מומלץ להוסיף צילום מסך של מסך תלמיד
+<img width="1674" height="819" alt="image" src="https://github.com/user-attachments/assets/badb615c-4a16-4182-8cff-f3a4b0afdbe1" />
+
 
 # מעקב מיקומים בזמן אמת
 במערכת קיים סימולטור מובנה שמעדכן מיקומים כל מספר שניות.
@@ -169,9 +189,15 @@ http://localhost:3000
 
 - תלמיד שנמצא בטווח מהמורה יסומן בירוק
 - תלמיד שמתרחק מעבר לטווח יסומן באדום
+- מורה יסומן בכחול
+- יוזר נוכחי יסומן בסמן דיפולטיבי
+- יש רדיוס סביב המורה (במסך התלמיד סביב המורה של התלמיד)
 
 כך ניתן לקבל תמונת מצב מהירה במהלך הטיול.
-### 📷 כאן מומלץ להוסיף צילום מסך של מפה עם סימונים אדום/ירוק
+
+<img width="311" height="298" alt="image" src="https://github.com/user-attachments/assets/39e633a9-3981-40b1-ade6-bfeb6b2e15bf" />
+
+
 
 <h1 id="structure">מבנה הפרויקט</h1>
 המערכת מחולקת לשתי שכבות עיקריות:
